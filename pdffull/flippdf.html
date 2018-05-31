@@ -1,0 +1,89 @@
+
+
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        height: 95vh;
+        width: 95%;
+        margin: 20px auto;
+      }
+      .fullscreen {
+        background-color: #333;
+      }
+      .examples {
+        position: relative;
+      }
+      .examples div {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        padding-top: 10px;
+        font-size: 20px;
+      }
+      .examples a {
+        color: #ccc;
+        text-decoration: none;
+        padding: 0 10px;
+      }
+      .examples a:hover {
+        color: #fff;
+      }
+    </style>
+
+
+    <div class="container" id="container">
+
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/three.min.js"></script>
+    <script src="js/pdf.min.js"></script>
+
+    <script src="js/3dflipbook.min.js"></script>
+    <script type="text/javascript">
+
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2]);
+    }
+
+    var pdfurl=getParameterByName('sourcepdf');
+    if (!pdfurl){
+      pdfurl="/media/pdffull/src/CondoLiving.pdf";
+    }
+    else {
+      if (pdfurl.indexOf("https://")<0){
+        pdfurl="https://"+pdfurl;
+      }
+    }
+
+
+       $('#container').FlipBook({
+         pdf: pdfurl,
+         pages: 5,
+         template: {
+           html: 'templates/default-book-view.html',
+           styles: [
+             'css/white-book-view.css'
+           ],
+           links: [
+             {
+               rel: 'stylesheet',
+               href: 'css/font-awesome.min.css'
+             }
+           ],
+           script: 'js/default-book-view.js'
+         }
+       });
+
+
+    </script>
