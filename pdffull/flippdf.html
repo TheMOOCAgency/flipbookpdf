@@ -1,14 +1,14 @@
 
-
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <style type="text/css">
       body {
         margin: 0;
         padding: 0;
       }
       .container {
-        height: 100vh;
+        height: 95vh;
         width: 95%;
-        margin: 0 auto;
+        margin: 0px auto;
       }
       .fullscreen {
         background-color: #333;
@@ -31,12 +31,36 @@
       .examples a:hover {
         color: #fff;
       }
+      #fullpdfscreen{
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+        color: gray;
+        text-decoration: none;
+      }
+      #fullpdfscreen i{
+        transform: rotate(45deg);
+      }
+      #fullpdfscreen:hover{
+        color: black;
+      }
+      #fullscreencontainer{
+        text-align: center;
+      }
+      #fullscreenpositionner{
+        width: 330px;
+    display: inline-block;
+    text-align: right;
+    position: relative;
+    top: -28px;
+      }
     </style>
-
 
     <div class="container" id="container">
 
     </div>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
 
     <script src="js/jquery.min.js"></script>
     <script src="js/html2canvas.min.js"></script>
@@ -44,6 +68,7 @@
     <script src="js/pdf.min.js"></script>
 
     <script src="js/3dflipbook.min.js"></script>
+
     <script type="text/javascript">
 
     function getParameterByName(name, url) {
@@ -85,5 +110,12 @@
          }
        });
 
+    </script>
+    <script>
+
+    var iecheck=window.navigator.userAgent.indexOf("Windows")>-1;
+    if(iecheck){
+      $('#container').append('<div id="fullscreencontainer"><div id="fullscreenpositionner"><a href="'+window.location.href+'"target="_blank" id="fullpdfscreen"><i class="fas fa-arrows-alt"></i></a><div></div>');
+    }
 
     </script>
