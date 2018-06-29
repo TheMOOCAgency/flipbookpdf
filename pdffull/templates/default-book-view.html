@@ -74,7 +74,7 @@ li.dropup.fnav-item.toggle.widSettings, li.fnav-item.cmdToc, li.fnav-item.cmdDef
           <li class="fnav-item cmdFastForward"><a href="#"><span class="icon"><i class="fa fa-fast-forward"  title="10 pages forward"></i></span></a></li>
           <li class="fnav-item cmdSave"><a href="#"><span class="icon"><i class="fa fa-download"  title="Download"></i></span></a></li>
           <li class="fnav-item cmdPrint"><a href="#"><span class="icon"><i class="fa fa-print"  title="Print"></i></span></a></li>
-          <li class="fnav-item cmdFullScreen"><a href="#"><span class="icon"><i class="fa fa-arrows-alt" title="Full screen"></i></span></a></li>
+          <li class="fnav-item cmdFullScreen" id="cmdFullScreen"><a href="#"><span class="icon"><i class="fa fa-arrows-alt" title="Full screen"></i></span></a></li>
           <li class="dropup fnav-item toggle widSettings">
             <a href="#"><div class="icon-caret"><span class="icon"><i class="fa fa-cog" title="Settings"></i> <i class="caret"></i></span></div></a>
             <ul class="menu hidden">
@@ -93,3 +93,11 @@ li.dropup.fnav-item.toggle.widSettings, li.fnav-item.cmdToc, li.fnav-item.cmdDef
 
   </div>
 </div>
+
+<script>
+  // Check if ie and hide full screen button
+  var iecheck=window.navigator.userAgent.indexOf("Windows")>-1;
+  if(iecheck){
+    document.getElementById('cmdFullScreen').style.display ="none";
+  }
+</script>
